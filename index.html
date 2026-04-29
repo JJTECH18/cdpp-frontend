@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Camp David Prayer Power — Where Heaven Meets Earth</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+:root{
+  --sky:#E0F4FF;--sky2:#C8ECFF;--sky3:#B0E2FF;
+  --blue:#38BDF8;--blue2:#0EA5E9;--blue3:#0284C7;--blue4:#075985;
+  --navy:#0C1A2E;--navy2:#0F2239;--navy3:#162C45;
+  --white:#FFFFFF;--text:#1E3A5F;--muted:#64A0C8;
+  --glass:rgba(255,255,255,0.08);--gb:rgba(255,255,255,0.15);
+  --glow:rgba(56,189,248,0.3);--glow2:rgba(56,189,248,0.5);
+}
+body{font-family:'Inter',sans-serif;background:var(--navy);color:var(--white);overflow-x:hidden}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--navy)}
+::-webkit-scrollbar-thumb{background:var(--blue);border-radius:2px}
+
+/* NAV */
+nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:1000;width:calc(100% - 48px);max-width:1300px;height:64px;padding:0 28px;display:flex;align-items:center;justify-content:space-between;background:rgba(12,26,46,0.7);backdrop-filter:blur(24px);border:1px solid rgba(56,189,248,0.15);border-radius:20px;transition:all .4s;box-shadow:0 8px 32px rgba(0,0,0,0.3)}
+nav.sc{background:rgba(12,26,46,0.95);border-color:rgba(56,189,248,0.25)}
+.nlogo{display:flex;align-items:center;gap:11px;text-decoration:none}
+.nlogo-icon{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--blue3),var(--blue));display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:900;color:white;box-shadow:0 4px 16px var(--glow)}
+.nlogo-name{font-family:'Montserrat',sans-serif;font-size:.9rem;font-weight:800;color:var(--white)}
+.nlogo-sub{font-size:.55rem;letter-spacing:3px;text-transform:uppercase;color:var(--blue);font-weight:600}
+.nlinks{display:flex;align-items:center;gap:24px;list-style:none}
+.nlinks a{font-size:.7rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.65);text-decoration:none;transition:color .3s}
+.nlinks a:hover{color:var(--blue)}
+
+/* NAV LOGIN / USER MENU */
+#nav-login-btn{display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--blue3),var(--blue2));color:white;padding:9px 20px;border-radius:100px;font-size:.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;box-shadow:0 4px 16px var(--glow);transition:all .3s}
+#nav-login-btn:hover{box-shadow:0 8px 24px var(--glow2);transform:translateY(-1px)}
+#nav-user-menu{display:none;align-items:center;gap:10px}
+.nav-user-av{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--blue4),var(--blue3));display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:800;color:white;cursor:pointer}
+.nav-user-name-wrap{font-size:.78rem;font-weight:700;color:white}
+.nav-user-name-wrap span{font-size:.6rem;color:var(--blue);display:block;letter-spacing:1px;text-transform:uppercase}
+.nav-dropdown{position:relative}
+.nav-dropdown-menu{position:absolute;top:calc(100% + 8px);right:0;background:var(--navy2);border:1px solid rgba(56,189,248,.15);border-radius:14px;padding:8px;min-width:160px;box-shadow:0 16px 40px rgba(0,0,0,.3);display:none;z-index:100}
+.nav-dropdown:hover .nav-dropdown-menu{display:block}
+.nav-dropdown-menu a{display:block;padding:9px 14px;font-size:.78rem;color:rgba(255,255,255,.75);text-decoration:none;border-radius:8px;font-weight:500;transition:all .2s}
+.nav-dropdown-menu a:hover{background:rgba(56,189,248,.1);color:var(--blue)}
+.nav-dropdown-menu hr{border:none;border-top:1px solid rgba(255,255,255,.08);margin:4px 0}
+
+.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.hbg span{width:24px;height:1.5px;background:white;display:block}
+
+/* HERO */
+#hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden;background:linear-gradient(135deg,#0C1A2E 0%,#0F2239 40%,#0C2340 70%,#0A1628 100%)}
+.hero-sky{position:absolute;inset:0;background:radial-gradient(ellipse 90% 60% at 50% -10%,rgba(56,189,248,.18) 0%,transparent 55%),radial-gradient(ellipse 50% 50% at 10% 60%,rgba(14,165,233,.12) 0%,transparent 50%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(56,189,248,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(56,189,248,.06) 1px,transparent 1px);background-size:50px 50px;mask-image:radial-gradient(ellipse 90% 90% at 50% 50%,black,transparent)}
+.ring{position:absolute;border-radius:50%;border:1px solid rgba(56,189,248,0.06);animation:ringPulse var(--d,8s) ease-in-out infinite var(--dl,0s)}
+.r1{width:600px;height:600px;top:50%;left:50%;transform:translate(-50%,-50%)}
+.r2{width:900px;height:900px;top:50%;left:50%;transform:translate(-50%,-50%);--d:12s;--dl:-4s}
+.r3{width:1200px;height:1200px;top:50%;left:50%;transform:translate(-50%,-50%);--d:16s;--dl:-8s}
+@keyframes ringPulse{0%,100%{opacity:.4;transform:translate(-50%,-50%) scale(1)}50%{opacity:.8;transform:translate(-50%,-50%) scale(1.02)}}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);animation:orbF var(--d,14s) ease-in-out infinite var(--dl,0s)}
+.orb1{width:500px;height:500px;background:rgba(56,189,248,.08);top:-150px;right:-100px}
+.orb2{width:350px;height:350px;background:rgba(14,165,233,.07);bottom:-80px;left:-80px;--d:18s;--dl:-6s}
+@keyframes orbF{0%,100%{transform:translate(0,0)}50%{transform:translate(20px,-20px)}}
+.pt{position:absolute;border-radius:50%;background:var(--blue);animation:ptF var(--d,6s) ease-in-out infinite var(--dl,0s);opacity:var(--op,.3)}
+@keyframes ptF{0%,100%{transform:translateY(0);opacity:var(--op,.3)}50%{transform:translateY(-28px);opacity:calc(var(--op,.3)*2.5)}}
+
+.hero-content{position:relative;z-index:3;padding:0 7%;padding-top:90px;max-width:800px}
+.h-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.25);border-radius:100px;padding:7px 18px;margin-bottom:28px;animation:fadeUp .8s .1s both;backdrop-filter:blur(12px)}
+.h-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--blue);animation:blink 2s infinite;box-shadow:0 0 8px var(--blue)}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.h-badge span{font-size:.65rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--blue)}
+h1.hero-h1{font-family:'Playfair Display',serif;font-size:clamp(3rem,7vw,6.2rem);font-weight:900;line-height:1.05;color:var(--white);margin-bottom:8px;animation:fadeUp .8s .2s both}
+h1.hero-h1 .blue{background:linear-gradient(135deg,var(--blue),#7DD3FC,#BAE6FD);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic}
+.hero-sub{font-size:clamp(1rem,1.8vw,1.25rem);color:rgba(255,255,255,.65);line-height:1.8;margin-bottom:36px;max-width:520px;font-weight:300;animation:fadeUp .8s .35s both}
+.hero-verse{background:rgba(56,189,248,.07);border:1px solid rgba(56,189,248,.18);border-left:3px solid var(--blue);border-radius:0 16px 16px 0;padding:18px 22px;margin-bottom:40px;animation:fadeUp .8s .5s both}
+.hero-verse p{font-style:italic;color:rgba(255,255,255,.72);font-size:.97rem;line-height:1.75;font-family:'Playfair Display',serif}
+.hero-verse cite{display:block;margin-top:7px;font-size:.65rem;letter-spacing:3px;color:var(--blue);font-style:normal;font-weight:700}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp .8s .65s both}
+.btn-primary{background:linear-gradient(135deg,var(--blue),var(--blue2));color:white;padding:16px 36px;border-radius:100px;text-decoration:none;font-weight:700;font-size:.8rem;letter-spacing:1.5px;text-transform:uppercase;border:none;cursor:pointer;box-shadow:0 8px 30px var(--glow);transition:all .3s;display:inline-flex;align-items:center;gap:10px}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 44px var(--glow2)}
+.btn-outline{color:white;padding:16px 36px;border-radius:100px;text-decoration:none;font-weight:600;font-size:.8rem;letter-spacing:1.5px;text-transform:uppercase;border:1px solid rgba(56,189,248,.3);cursor:pointer;background:rgba(56,189,248,.07);transition:all .3s;display:inline-flex;align-items:center;gap:10px}
+.btn-outline:hover{background:rgba(56,189,248,.15);border-color:rgba(56,189,248,.5);box-shadow:0 0 24px var(--glow)}
+
+/* STATS BAR */
+.hero-stats{position:absolute;bottom:0;left:0;right:0;z-index:3;display:flex;background:rgba(12,26,46,.75);backdrop-filter:blur(20px);border-top:1px solid rgba(56,189,248,.12);animation:fadeUp .8s 1s both}
+.hst{flex:1;padding:26px 20px;text-align:center;border-right:1px solid rgba(56,189,248,.1);transition:background .3s}
+.hst:last-child{border-right:none}
+.hst:hover{background:rgba(56,189,248,.07)}
+.hst-n{font-family:'Montserrat',sans-serif;font-size:2.2rem;font-weight:900;background:linear-gradient(135deg,var(--blue),#7DD3FC);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.hst-l{font-size:.6rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:5px;font-weight:500}
+.scroll-hint{position:absolute;bottom:110px;right:6%;z-index:3;display:flex;flex-direction:column;align-items:center;gap:7px;animation:fadeIn 1s 1.5s both}
+.scroll-hint span{font-size:.58rem;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.3);writing-mode:vertical-lr}
+.scroll-line{width:1px;height:50px;background:linear-gradient(to bottom,var(--blue),transparent);animation:sline 2s ease-in-out infinite}
+@keyframes sline{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* TICKER */
+.ticker{background:linear-gradient(90deg,var(--blue3),var(--blue2),var(--blue));padding:13px 0;overflow:hidden;position:relative}
+.ticker::before,.ticker::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:1}
+.ticker::before{left:0;background:linear-gradient(to right,var(--blue3),transparent)}
+.ticker::after{right:0;background:linear-gradient(to left,var(--blue),transparent)}
+.ticker-track{display:flex;gap:60px;animation:tick 32s linear infinite;white-space:nowrap}
+.ticker-item{display:flex;align-items:center;gap:14px;flex-shrink:0;font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.9)}
+.ticker-item::before{content:'✦';color:rgba(255,255,255,.5);font-size:8px}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SECTIONS */
+.sec{padding:100px 7%}
+.sl{display:inline-flex;align-items:center;gap:10px;font-size:.62rem;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--blue);margin-bottom:16px}
+.sl::before{content:'';width:20px;height:1px;background:var(--blue)}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3.5vw,3rem);font-weight:700;line-height:1.15;color:var(--white)}
+.sec-title .em{color:var(--blue);font-style:italic}
+.sec-title-dark{color:var(--navy)!important}
+.sl-dark{color:var(--blue3)!important}.sl-dark::before{background:var(--blue3)!important}
+
+/* VISION */
+#vision{background:var(--navy);position:relative;overflow:hidden}
+#vision::after{content:'';position:absolute;right:-10%;top:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(56,189,248,.06) 0%,transparent 70%);pointer-events:none}
+.v-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:center}
+.v-body p{font-size:1rem;color:rgba(255,255,255,.62);line-height:1.9;margin-top:22px;font-weight:300}
+.v-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.vcard{padding:28px 24px;border-radius:18px;background:rgba(56,189,248,.05);border:1px solid rgba(56,189,248,.12);transition:all .4s;position:relative;overflow:hidden;cursor:default}
+.vcard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--blue2));transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.vcard:hover{background:rgba(56,189,248,.1);border-color:rgba(56,189,248,.3);transform:translateY(-4px)}.vcard:hover::before{transform:scaleX(1)}
+.vcard.wide{grid-column:span 2}
+.vc-n{font-family:'Montserrat',sans-serif;font-size:2.2rem;font-weight:900;color:rgba(56,189,248,.12);line-height:1;margin-bottom:10px}
+.vc-t{font-weight:700;font-size:.85rem;letter-spacing:1px;color:var(--white);margin-bottom:8px}
+.vc-d{font-size:.85rem;line-height:1.75;color:rgba(255,255,255,.6);font-weight:300}
+
+/* ABOUT */
+#about{background:var(--sky);position:relative}
+.a-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:start}
+.a-timeline{position:relative;padding-left:30px;margin-top:40px}
+.a-timeline::before{content:'';position:absolute;left:7px;top:5px;bottom:0;width:2px;background:linear-gradient(to bottom,var(--blue2),transparent)}
+.tli{position:relative;margin-bottom:32px}
+.tli::before{content:'';position:absolute;left:-26px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--white);border:2.5px solid var(--blue2);box-shadow:0 0 0 3px rgba(14,165,233,.15)}
+.tly{font-family:'Montserrat',sans-serif;font-size:.65rem;font-weight:800;letter-spacing:3px;color:var(--blue3);margin-bottom:3px}
+.tle{font-weight:700;font-size:.95rem;color:var(--navy);margin-bottom:3px}
+.tld{font-size:.84rem;color:#4A7A9B;line-height:1.65}
+.a-story{background:var(--navy);border-radius:24px;padding:48px;box-shadow:0 40px 80px rgba(12,26,46,.2)}
+.a-story h3{font-family:'Playfair Display',serif;font-size:1.7rem;color:white;margin-bottom:22px}
+.a-story p{font-size:.95rem;color:rgba(255,255,255,.65);line-height:1.9;margin-bottom:16px;font-weight:300}
+.mv-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}
+.mv-b{padding:20px;border-radius:14px}
+.mv-b.m{background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.2)}
+.mv-b.v{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)}
+.mv-b h4{font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
+.mv-b p{font-size:.84rem;line-height:1.6;color:rgba(255,255,255,.65);font-weight:300;margin:0}
+
+/* PROGRAMS */
+#programs{background:var(--navy2);position:relative;overflow:hidden}
+#programs::before{content:'';position:absolute;left:-10%;bottom:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(56,189,248,.06) 0%,transparent 70%)}
+.p-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:56px}
+.pcard{padding:34px 26px;border-radius:22px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);backdrop-filter:blur(12px);position:relative;overflow:hidden;transition:all .4s;cursor:default}
+.pcard::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(56,189,248,.08),transparent);opacity:0;transition:opacity .4s;border-radius:22px}
+.pcard:hover{border-color:rgba(56,189,248,.3);transform:translateY(-6px);box-shadow:0 28px 60px rgba(0,0,0,.3)}.pcard:hover::after{opacity:1}
+.p-num{font-family:'Montserrat',sans-serif;font-size:3rem;font-weight:900;color:rgba(56,189,248,.1);line-height:1;position:absolute;right:18px;top:12px}
+.p-icon{font-size:2rem;margin-bottom:16px;position:relative;z-index:1}
+.p-name{font-family:'Playfair Display',serif;font-size:1.08rem;color:var(--white);margin-bottom:10px;line-height:1.3;position:relative;z-index:1}
+.p-desc{font-size:.83rem;line-height:1.75;color:rgba(255,255,255,.6);margin-bottom:18px;position:relative;z-index:1;font-weight:300}
+.p-time{display:inline-flex;align-items:center;gap:8px;background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.22);border-radius:100px;padding:6px 14px;color:var(--blue);font-size:.68rem;letter-spacing:1px;font-weight:700;position:relative;z-index:1}
+.p-loading{grid-column:span 3;text-align:center;padding:48px;color:rgba(255,255,255,.4);font-size:.9rem}
+
+/* OUTREACHES */
+#outreaches{background:var(--sky)}
+.o-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;grid-template-rows:auto auto;gap:18px;margin-top:56px}
+.ocard{border-radius:22px;overflow:hidden;box-shadow:0 4px 28px rgba(12,26,46,.1);border:1px solid rgba(14,165,233,.1);transition:all .4s;background:white}
+.ocard:hover{transform:translateY(-7px);box-shadow:0 28px 60px rgba(14,165,233,.2)}
+.ocard.ft{grid-row:span 2}
+.o-img{width:100%;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative;overflow:hidden;height:180px}
+.ocard.ft .o-img{height:340px}
+.og1{background:linear-gradient(135deg,#0C1A2E,#0F4C75)}.og2{background:linear-gradient(135deg,#0a1a3d,#0d4f82)}
+.og3{background:linear-gradient(135deg,#0a2a40,#0c5f8a)}.og4{background:linear-gradient(135deg,#061020,#0a3a6a)}
+.og5{background:linear-gradient(135deg,#0a1528,#0b3d72)}.og6{background:linear-gradient(135deg,#060e1c,#093060)}
+.o-badge{position:absolute;top:14px;left:14px;background:linear-gradient(135deg,var(--blue),var(--blue2));color:white;font-size:.6rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:5px 13px;border-radius:100px}
+.o-body{padding:22px 24px}
+.o-loc{font-size:.62rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--blue3);margin-bottom:6px}
+.o-title{font-family:'Playfair Display',serif;font-size:.95rem;color:var(--navy);margin-bottom:6px;line-height:1.3;font-weight:700}
+.o-desc{font-size:.82rem;color:#4A7A9B;line-height:1.65}
+
+/* TESTIMONIES */
+#testimonies{background:var(--navy);position:relative;overflow:hidden}
+#testimonies::before{content:'❝';position:absolute;left:-2%;top:-5%;font-size:min(35vw,340px);color:rgba(56,189,248,.04);font-family:'Playfair Display',serif;line-height:1;pointer-events:none}
+.t-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;grid-template-rows:auto auto;gap:18px;margin-top:56px}
+.tcard{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:32px 26px;backdrop-filter:blur(16px);transition:all .4s;position:relative}
+.tcard::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),transparent);transform:scaleX(0);transform-origin:left;transition:transform .4s;border-radius:0 0 22px 22px}
+.tcard:hover{background:rgba(56,189,248,.07);border-color:rgba(56,189,248,.2)}.tcard:hover::after{transform:scaleX(1)}
+.tcard.ht{grid-row:span 2}
+.t-q{font-size:2.5rem;color:var(--blue);font-family:'Playfair Display',serif;line-height:.8;display:block;margin-bottom:14px}
+.t-text{font-family:'Playfair Display',serif;font-style:italic;font-size:.97rem;color:rgba(255,255,255,.7);line-height:1.85;margin-bottom:24px}
+.t-auth{display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid rgba(255,255,255,.06)}
+.t-av{width:42px;height:42px;border-radius:12px;flex-shrink:0;background:linear-gradient(135deg,var(--blue3),var(--blue));display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:800;font-size:.82rem;color:white}
+.t-name{font-weight:700;font-size:.87rem;color:var(--white);font-family:'Montserrat',sans-serif}
+.t-role{font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-top:2px}
+.t-loading{grid-column:span 3;text-align:center;padding:48px;color:rgba(255,255,255,.4)}
+
+/* SUBMIT TESTIMONY */
+.testimony-form{background:rgba(56,189,248,.06);border:1px solid rgba(56,189,248,.15);border-radius:20px;padding:36px;margin-top:40px}
+.testimony-form h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:white;margin-bottom:6px}
+.testimony-form p{font-size:.85rem;color:rgba(255,255,255,.55);margin-bottom:24px}
+.tf-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.tf-group{margin-bottom:14px}
+.tf-label{display:block;font-size:.72rem;font-weight:700;color:rgba(255,255,255,.65);margin-bottom:6px;letter-spacing:.5px}
+.tf-input{width:100%;padding:12px 16px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:12px;color:white;font-size:.86rem;outline:none;transition:all .25s;font-family:'Inter',sans-serif}
+.tf-input::placeholder{color:rgba(255,255,255,.3)}
+.tf-input:focus{border-color:rgba(56,189,248,.5);box-shadow:0 0 0 3px rgba(56,189,248,.1)}
+
+/* CALENDAR */
+#calendar{background:var(--navy2)}
+.cal-wrap{display:grid;grid-template-columns:auto 1fr;gap:52px;margin-top:56px;align-items:start}
+.cal-box{background:rgba(255,255,255,.04);border:1px solid rgba(56,189,248,.12);border-radius:22px;overflow:hidden;width:336px;backdrop-filter:blur(16px)}
+.cal-head{background:linear-gradient(135deg,var(--blue3),var(--blue2));padding:20px 24px;display:flex;justify-content:space-between;align-items:center}
+.cal-mn{font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:900;color:white;letter-spacing:2px}
+.cal-yr{font-size:.75rem;color:rgba(255,255,255,.7);font-weight:600}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);padding:12px}
+.cdl{text-align:center;padding:7px 2px;font-size:.58rem;font-weight:700;letter-spacing:2px;color:rgba(255,255,255,.35)}
+.cd{text-align:center;padding:7px 2px;font-size:.78rem;color:rgba(255,255,255,.6);border-radius:10px;cursor:pointer;transition:all .2s;margin:1px}
+.cd:hover{background:rgba(56,189,248,.18);color:white}.cd.empty{pointer-events:none;opacity:0}
+.cd.ev{color:var(--blue);font-weight:700;position:relative}.cd.ev::after{content:'';position:absolute;bottom:2px;left:50%;transform:translateX(-50%);width:4px;height:4px;border-radius:50%;background:var(--blue)}
+.cd.tod{background:linear-gradient(135deg,var(--blue3),var(--blue2));color:white;font-weight:800;box-shadow:0 4px 12px var(--glow)}
+.ev-list{display:flex;flex-direction:column;gap:12px}
+.ev-item{display:flex;gap:16px;align-items:flex-start;background:rgba(255,255,255,.04);border:1px solid rgba(56,189,248,.1);border-radius:16px;padding:16px 20px;backdrop-filter:blur(12px);transition:all .3s}
+.ev-item:hover{background:rgba(56,189,248,.08);border-color:rgba(56,189,248,.25);transform:translateX(4px)}
+.ev-date{background:linear-gradient(135deg,var(--blue3),var(--blue2));border-radius:12px;padding:10px 12px;text-align:center;flex-shrink:0;min-width:48px;box-shadow:0 4px 14px var(--glow)}
+.ev-dn{font-family:'Montserrat',sans-serif;font-size:1.3rem;font-weight:900;color:white;line-height:1}
+.ev-dm{font-size:.55rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:1px}
+.ev-name{color:var(--white);font-weight:700;font-size:.9rem;margin-bottom:4px;font-family:'Montserrat',sans-serif}
+.ev-time{color:var(--blue);font-size:.68rem;letter-spacing:1.5px;font-weight:700}
+.ev-place{color:rgba(255,255,255,.4);font-size:.68rem;margin-top:2px}
+.ev-loading{text-align:center;padding:24px;color:rgba(255,255,255,.4);font-size:.85rem}
+
+/* MEMBERS */
+#members{background:var(--sky2)}
+.mem-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.mem-card{background:white;border-radius:22px;padding:30px 18px;text-align:center;box-shadow:0 4px 24px rgba(12,26,46,.07);border:1px solid rgba(14,165,233,.1);transition:all .4s}
+.mem-card:hover{transform:translateY(-6px);box-shadow:0 24px 56px rgba(14,165,233,.2);border-color:rgba(14,165,233,.3)}
+.mem-av{width:68px;height:68px;border-radius:18px;margin:0 auto 16px;background:linear-gradient(135deg,var(--navy),var(--blue3));display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:900;color:white;box-shadow:0 8px 24px rgba(14,165,233,.25)}
+.mem-name{font-family:'Montserrat',sans-serif;font-weight:800;font-size:.85rem;color:var(--navy);margin-bottom:5px}
+.mem-role{color:var(--blue3);font-size:.6rem;font-weight:700;letter-spacing:3px;text-transform:uppercase}
+.mem-since{color:#94A3B8;font-size:.68rem;margin-top:7px}
+
+/* CONNECT */
+#connect{background:var(--navy2);text-align:center;position:relative;overflow:hidden}
+#connect::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(56,189,248,.1) 0%,transparent 60%)}
+.c-sub{max-width:480px;margin:14px auto 56px;font-size:.97rem;color:rgba(255,255,255,.6);line-height:1.8;font-weight:300}
+.soc-row{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-bottom:60px;position:relative;z-index:1}
+.soc-btn{display:flex;align-items:center;gap:10px;padding:13px 24px;border-radius:100px;text-decoration:none;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(12px);transition:all .35s}
+.soc-btn:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(0,0,0,.3)}
+.soc-icon{font-size:1.25rem}.soc-label{font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.85);font-family:'Montserrat',sans-serif}
+.soc-btn.fb:hover{background:#1877F2;border-color:#1877F2}.soc-btn.ig:hover{background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);border-color:transparent}
+.soc-btn.yt:hover{background:#FF0000;border-color:#FF0000}.soc-btn.tg:hover{background:#2CA5E0;border-color:#2CA5E0}
+.soc-btn.tw:hover{background:#1DA1F2;border-color:#1DA1F2}.soc-btn.wa:hover{background:#25D366;border-color:#25D366}
+
+/* NEWSLETTER */
+.nl-card{background:rgba(255,255,255,.05);border:1px solid rgba(56,189,248,.15);border-radius:24px;padding:48px;max-width:540px;margin:0 auto;position:relative;z-index:1;backdrop-filter:blur(20px)}
+.nl-card h3{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--white);margin-bottom:10px}
+.nl-card p{font-size:.92rem;color:rgba(255,255,255,.6);margin-bottom:26px;font-weight:300}
+.nl-form{display:flex;gap:10px}
+.nl-input{flex:1;padding:14px 20px;border-radius:100px;background:rgba(255,255,255,.07);border:1px solid rgba(56,189,248,.18);color:white;font-size:.87rem;outline:none;transition:all .3s;font-family:'Inter',sans-serif}
+.nl-input::placeholder{color:rgba(255,255,255,.35)}.nl-input:focus{border-color:rgba(56,189,248,.5);box-shadow:0 0 0 3px rgba(56,189,248,.1)}
+.nl-btn{background:linear-gradient(135deg,var(--blue),var(--blue2));color:white;padding:14px 26px;border-radius:100px;border:none;cursor:pointer;font-weight:800;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;transition:all .3s;font-family:'Montserrat',sans-serif;white-space:nowrap;box-shadow:0 4px 20px var(--glow)}
+.nl-btn:hover{box-shadow:0 8px 30px var(--glow2);transform:translateY(-2px)}
+
+/* MEMBER BANNER */
+.member-banner{background:linear-gradient(135deg,var(--navy),var(--navy3));border:1px solid rgba(56,189,248,.2);border-radius:24px;padding:48px;text-align:center;margin:0 7% 60px;position:relative;overflow:hidden}
+.member-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(56,189,248,.07),transparent)}
+.member-banner h2{font-family:'Playfair Display',serif;font-size:2rem;color:white;margin-bottom:12px}
+.member-banner p{color:rgba(255,255,255,.6);font-size:.95rem;margin-bottom:28px;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.7}
+.member-banner-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* FOOTER */
+footer{background:var(--navy);padding:64px 7% 28px;border-top:1px solid rgba(56,189,248,.08)}
+.f-grid{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.f-brand p{font-size:.84rem;line-height:1.85;color:rgba(255,255,255,.38);margin:14px 0 18px}
+.f-addr{font-size:.7rem;letter-spacing:1.5px;color:var(--blue)}
+.f-h{font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--white);margin-bottom:18px}
+.f-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.f-links a{color:rgba(255,255,255,.38);text-decoration:none;font-size:.84rem;transition:color .3s}
+.f-links a:hover{color:var(--blue)}
+.f-bot{border-top:1px solid rgba(255,255,255,.06);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.f-copy{color:rgba(255,255,255,.25);font-size:.76rem}.f-copy span{color:var(--blue)}
+
+/* MOBILE MENU */
+.mob{display:none;position:fixed;inset:0;z-index:999;background:rgba(12,26,46,.98);backdrop-filter:blur(24px);flex-direction:column;align-items:center;justify-content:center;gap:26px}
+.mob.open{display:flex}
+.mob a{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--white);text-decoration:none;transition:color .3s}
+.mob a:hover{color:var(--blue)}
+.mob-close{position:absolute;top:24px;right:6%;background:none;border:none;color:white;font-size:1.8rem;cursor:pointer}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}
+.rvl{opacity:0;transform:translateX(-34px);transition:opacity .7s,transform .7s}
+.rvr{opacity:0;transform:translateX(34px);transition:opacity .7s,transform .7s}
+.rv.in,.rvl.in,.rvr.in{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:1100px){.p-grid{grid-template-columns:repeat(2,1fr)}.t-grid,.o-grid{grid-template-columns:1fr 1fr}.tcard.ht,.ocard.ft{grid-row:span 1}.v-grid,.a-grid,.cal-wrap{grid-template-columns:1fr;gap:48px}.cal-box{width:100%}.mem-grid{grid-template-columns:repeat(2,1fr)}.f-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){nav{width:calc(100% - 24px);top:8px;padding:0 18px}.sec{padding:72px 6%}.nlinks{display:none}.hbg{display:flex}.hero-stats{position:static;flex-wrap:wrap}.hst{flex:calc(50% - 1px);border-right:none;border-bottom:1px solid rgba(56,189,248,.1)}.p-grid,.t-grid,.o-grid,.mem-grid{grid-template-columns:1fr}.nl-form{flex-direction:column}.f-grid{grid-template-columns:1fr}.mv-grid{grid-template-columns:1fr}.tf-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- MOBILE MENU -->
+<div class="mob" id="mob">
+  <button class="mob-close" onclick="document.getElementById('mob').classList.remove('open')">✕</button>
+  <a href="#vision" onclick="document.getElementById('mob').classList.remove('open')">Vision</a>
+  <a href="#about" onclick="document.getElementById('mob').classList.remove('open')">About</a>
+  <a href="#programs" onclick="document.getElementById('mob').classList.remove('open')">Programs</a>
+  <a href="#outreaches" onclick="document.getElementById('mob').classList.remove('open')">Outreaches</a>
+  <a href="#testimonies" onclick="document.getElementById('mob').classList.remove('open')">Testimonies</a>
+  <a href="#calendar" onclick="document.getElementById('mob').classList.remove('open')">Calendar</a>
+  <a href="#members" onclick="document.getElementById('mob').classList.remove('open')">Members</a>
+  <a href="login.html" onclick="document.getElementById('mob').classList.remove('open')">Member Login</a>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="nlogo">
+    <div class="nlogo-icon">✝</div>
+    <div><div class="nlogo-name">CAMP DAVID</div><div class="nlogo-sub">Prayer Power</div></div>
+  </a>
+  <ul class="nlinks">
+    <li><a href="#vision">Vision</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#outreaches">Outreaches</a></li>
+    <li><a href="#testimonies">Testimonies</a></li>
+    <li><a href="#calendar">Calendar</a></li>
+    <li><a href="#members">Members</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:12px">
+    <!-- Login button (shown when logged out) -->
+    <a href="login.html" id="nav-login-btn">✝ Member Login</a>
+    <!-- User menu (shown when logged in) -->
+    <div id="nav-user-menu" class="nav-dropdown">
+      <div style="display:flex;align-items:center;gap:10px;cursor:pointer">
+        <div class="nav-user-av" id="nav-user-av">U</div>
+        <div class="nav-user-name-wrap">
+          Hi, <strong id="nav-user-name">User</strong>
+          <span id="nav-user-role">Member</span>
+        </div>
+      </div>
+      <div class="nav-dropdown-menu">
+        <a href="member-portal.html">👤 My Profile</a>
+        <a href="member-portal.html#media">🎵 Media Library</a>
+        <a id="admin-link" href="cdpp-dashboard.html" style="display:none">⚙️ Admin Dashboard</a>
+        <hr>
+        <a href="#" onclick="Auth.logout();return false" style="color:#EF4444">⎋ Logout</a>
+      </div>
+    </div>
+    <div class="hbg" onclick="document.getElementById('mob').classList.add('open')">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-sky"></div>
+  <div class="hero-grid"></div>
+  <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
+  <div class="orb orb1"></div><div class="orb orb2"></div>
+  <div id="pts"></div>
+  <div class="hero-content">
+    <div class="h-badge"><div class="h-badge-dot"></div><span>Camp David Prayer Power · Est. 2014</span></div>
+    <h1 class="hero-h1">Where <span class="blue">Heaven</span><br>Meets Earth</h1>
+    <p class="hero-sub">A sacred community of prayer warriors, worshippers, and world-changers — carrying God's fire to every corner of life.</p>
+    <div class="hero-verse">
+      <p>"If my people who are called by my name will humble themselves and pray and seek my face and turn from their wicked ways, then I will hear from heaven..."</p>
+      <cite>— 2 Chronicles 7:14</cite>
+    </div>
+    <div class="hero-btns">
+      <a href="#about" class="btn-primary">✦ Discover Our Story</a>
+      <a href="login.html" class="btn-outline">✝ Member Login →</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hst"><div class="hst-n" data-target="10" data-suffix="+">0</div><div class="hst-l">Years of Ministry</div></div>
+    <div class="hst"><div class="hst-n" data-target="500" data-suffix="+">0</div><div class="hst-l">Lives Transformed</div></div>
+    <div class="hst"><div class="hst-n" data-target="30" data-suffix="+">0</div><div class="hst-l">Outreaches Done</div></div>
+    <div class="hst"><div class="hst-n" data-target="12" data-suffix="">0</div><div class="hst-l">Annual Programs</div></div>
+  </div>
+  <div class="scroll-hint"><div class="scroll-line"></div><span>Scroll</span></div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item">Vision 2025 — Expanding God's Kingdom</span>
+    <span class="ticker-item">Monthly Night of Prayer — Last Friday</span>
+    <span class="ticker-item">Making Disciples · Transforming Nations</span>
+    <span class="ticker-item">Prayer · Worship · Evangelism · Community</span>
+    <span class="ticker-item">New Members Always Welcome</span>
+    <span class="ticker-item">Vision 2025 — Expanding God's Kingdom</span>
+    <span class="ticker-item">Monthly Night of Prayer — Last Friday</span>
+    <span class="ticker-item">Making Disciples · Transforming Nations</span>
+    <span class="ticker-item">Prayer · Worship · Evangelism · Community</span>
+    <span class="ticker-item">New Members Always Welcome</span>
+  </div>
+</div>
+
+<!-- VISION -->
+<section id="vision" class="sec">
+  <div class="v-grid">
+    <div class="rvl">
+      <div class="sl">Our Direction</div>
+      <h2 class="sec-title">Vision for <span class="em">2025</span></h2>
+      <p class="v-body" style="margin-top:20px;font-size:1rem;color:rgba(255,255,255,.62);line-height:1.9;font-weight:300">This year, Camp David Prayer Power steps boldly into its most significant season — pressing deeper, reaching wider, armed with faith and the conviction that God's best is still ahead.</p>
+    </div>
+    <div class="v-cards rvr">
+      <div class="vcard wide"><div class="vc-n">01</div><div class="vc-t">🌍 Expand Our Reach</div><div class="vc-d">Taking the Gospel beyond our walls into communities, cities, and nations — schools, prisons, hospitals, and underserved communities with the love and power of Christ.</div></div>
+      <div class="vcard"><div class="vc-n">02</div><div class="vc-t">🔥 Ignite Prayer</div><div class="vc-d">Building a culture of continuous, fervent prayer — a living altar that never grows cold.</div></div>
+      <div class="vcard"><div class="vc-n">03</div><div class="vc-t">🌱 Raise Disciples</div><div class="vc-d">Raising mature sons and daughters who walk in purpose, power, and identity in Christ.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="sec">
+  <div class="a-grid">
+    <div class="rvl">
+      <div class="sl sl-dark">Our Journey</div>
+      <h2 class="sec-title sec-title-dark">Our <span class="em">Story</span></h2>
+      <div class="a-timeline">
+        <div class="tli"><div class="tly">2014</div><div class="tle">The Founding</div><div class="tld">12 believers, one vision — build a house of prayer that transforms a generation.</div></div>
+        <div class="tli"><div class="tly">2016</div><div class="tle">First Outreach</div><div class="tld">Our first community outreach touched over 200 families — the beginning of our legacy.</div></div>
+        <div class="tli"><div class="tly">2018</div><div class="tle">Formal Registration</div><div class="tld">Officially registered — opening a new chapter of structured growth.</div></div>
+        <div class="tli"><div class="tly">2020</div><div class="tle">Digital Expansion</div><div class="tld">Launched online ministry during the pandemic — reaching thousands beyond walls.</div></div>
+        <div class="tli"><div class="tly">2024</div><div class="tle">A Decade of Faithfulness</div><div class="tld">10 years. 500+ lives changed. 30+ outreaches. Hundreds of testimonies.</div></div>
+        <div class="tli"><div class="tly">2025</div><div class="tle">Greater Works Ahead</div><div class="tld">Our boldest season. New territories. Deeper dimensions. Uncharted glory.</div></div>
+      </div>
+    </div>
+    <div class="a-story rvr">
+      <h3>Who We Are</h3>
+      <p>Camp David Prayer Power (CDPP) is more than a church — it is a movement. Born from a burning desire to see God's Kingdom made manifest on earth, we have grown from twelve into hundreds, united in faith, prayer, and love.</p>
+      <p>For over a decade, we have carried one conviction: that prayer is not merely a religious duty, but the most powerful force available to humanity.</p>
+      <p>We believe in signs, wonders, and miracles — and we have witnessed them. The story of CDPP is written in transformed lives.</p>
+      <div class="mv-grid">
+        <div class="mv-b m"><h4>Our Mission</h4><p>To raise a generation of prayer warriors who transform their world through the Holy Spirit.</p></div>
+        <div class="mv-b v"><h4>Our Vision</h4><p>A world where every person encounters the living God and walks in their divine purpose.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS — Loaded from database -->
+<section id="programs" class="sec">
+  <div class="sl">What We Do</div>
+  <h2 class="sec-title">Our <span class="em">Programs</span></h2>
+  <div class="p-grid rv" id="programs-grid">
+    <div class="p-loading">⏳ Loading programs...</div>
+  </div>
+</section>
+
+<!-- OUTREACHES -->
+<section id="outreaches" class="sec">
+  <div class="sl sl-dark">Impact Stories</div>
+  <h2 class="sec-title sec-title-dark">Past <span class="em">Outreaches</span></h2>
+  <div class="o-grid rv" id="outreaches-grid">
+    <!-- Static outreaches (replace with DB data when you add them) -->
+    <div class="ocard ft"><div class="o-img og1"><span>🏘️</span><div class="o-badge">2024</div></div><div class="o-body"><div class="o-loc">📍 Benin City, Edo State</div><div class="o-title">Back to School Outreach</div><div class="o-desc">Provided school supplies, bags, and uniforms to over 300 children from low-income families.</div></div></div>
+    <div class="ocard"><div class="o-img og2" style="height:160px"><span>🏥</span><div class="o-badge">2024</div></div><div class="o-body"><div class="o-loc">📍 Rural Communities</div><div class="o-title">Medical Mission</div><div class="o-desc">Free medical checkups and drugs for 500+ residents in underserved villages.</div></div></div>
+    <div class="ocard"><div class="o-img og3" style="height:160px"><span>🍱</span><div class="o-badge">2023</div></div><div class="o-body"><div class="o-loc">📍 Orphanages</div><div class="o-title">Feed The Forgotten</div><div class="o-desc">Food, clothing, and the love of Christ to children in three orphanages.</div></div></div>
+    <div class="ocard"><div class="o-img og4" style="height:160px"><span>⛪</span><div class="o-badge">2023</div></div><div class="o-body"><div class="o-loc">📍 Prison Ministry</div><div class="o-title">Bars Can't Stop Grace</div><div class="o-desc">Ministered to 200+ inmates — hope, salvation, and practical support.</div></div></div>
+    <div class="ocard"><div class="o-img og5" style="height:160px"><span>📚</span><div class="o-badge">2022</div></div><div class="o-body"><div class="o-loc">📍 Secondary Schools</div><div class="o-title">Gospel in Schools</div><div class="o-desc">Campus evangelism across 5 schools — 400+ students led to faith in Christ.</div></div></div>
+    <div class="ocard"><div class="o-img og6" style="height:160px"><span>🤝</span><div class="o-badge">2022</div></div><div class="o-body"><div class="o-loc">📍 IDP Camp</div><div class="o-title">Hope for the Displaced</div><div class="o-desc">Relief materials, prayer, and counseling for displaced families.</div></div></div>
+  </div>
+</section>
+
+<!-- TESTIMONIES — Loaded from database -->
+<section id="testimonies" class="sec">
+  <div class="sl">God's Faithfulness</div>
+  <h2 class="sec-title">Member <span class="em">Testimonies</span></h2>
+  <div class="t-grid rv" id="testimonies-grid">
+    <div class="t-loading">⏳ Loading testimonies...</div>
+  </div>
+  <!-- Submit Testimony Form -->
+  <div class="testimony-form rv" id="testimony-form-section">
+    <h3>Share Your Testimony 🙏</h3>
+    <p>Has God done something amazing in your life through CDPP? Share it and encourage others.</p>
+    <div class="tf-row">
+      <div class="tf-group"><label class="tf-label">Your Name</label><input class="tf-input" id="t-name" placeholder="Full name"></div>
+      <div class="tf-group"><label class="tf-label">Category</label>
+        <select class="tf-input" id="t-category">
+          <option value="healing">Healing</option>
+          <option value="financial">Financial</option>
+          <option value="restoration">Restoration</option>
+          <option value="salvation">Salvation</option>
+          <option value="marriage">Marriage</option>
+          <option value="career">Career</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+    </div>
+    <div class="tf-group"><label class="tf-label">Title</label><input class="tf-input" id="t-title" placeholder="e.g. God Healed Me!"></div>
+    <div class="tf-group"><label class="tf-label">Your Story (minimum 50 characters)</label><textarea class="tf-input" id="t-content" rows="4" placeholder="Tell us what God did in your life..."></textarea></div>
+    <button class="btn-primary" style="margin-top:8px" onclick="submitTestimony()">✦ Submit Testimony</button>
+  </div>
+</section>
+
+<!-- CALENDAR — Loaded from database -->
+<section id="calendar" class="sec">
+  <div class="sl">Upcoming Events</div>
+  <h2 class="sec-title">Our <span class="em">Calendar</span></h2>
+  <div class="cal-wrap rv">
+    <div class="cal-box">
+      <div class="cal-head">
+        <div class="cal-mn" id="cal-month-name">APRIL</div>
+        <div class="cal-yr" id="cal-year">2025</div>
+      </div>
+      <div class="cal-grid" id="cal-grid">
+        <div class="cdl">S</div><div class="cdl">M</div><div class="cdl">T</div><div class="cdl">W</div><div class="cdl">T</div><div class="cdl">F</div><div class="cdl">S</div>
+      </div>
+    </div>
+    <div class="ev-list" id="events-list">
+      <div class="ev-loading">⏳ Loading events...</div>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBERS -->
+<section id="members" class="sec">
+  <div class="sl sl-dark">Our Family</div>
+  <h2 class="sec-title sec-title-dark">Members <span class="em">Directory</span></h2>
+  <p style="font-size:.97rem;color:#4A7A9B;margin-top:12px;font-weight:300">Our family of believers united by one faith and one love for God.</p>
+  <div class="mem-grid rv">
+    <div class="mem-card"><div class="mem-av">PA</div><div class="mem-name">Pastor Abraham</div><div class="mem-role">Senior Pastor</div><div class="mem-since">CDPP since 2014</div></div>
+    <div class="mem-card"><div class="mem-av">DG</div><div class="mem-name">Deaconess Grace</div><div class="mem-role">Women's Leader</div><div class="mem-since">CDPP since 2014</div></div>
+    <div class="mem-card"><div class="mem-av">BM</div><div class="mem-name">Bro. Michael</div><div class="mem-role">Worship Leader</div><div class="mem-since">CDPP since 2016</div></div>
+    <div class="mem-card"><div class="mem-av">SE</div><div class="mem-name">Sis. Esther</div><div class="mem-role">Youth Coordinator</div><div class="mem-since">CDPP since 2018</div></div>
+    <div class="mem-card"><div class="mem-av">EJ</div><div class="mem-name">Elder Joseph</div><div class="mem-role">Prayer Coordinator</div><div class="mem-since">CDPP since 2015</div></div>
+    <div class="mem-card"><div class="mem-av">SN</div><div class="mem-name">Sis. Ngozi</div><div class="mem-role">Media Director</div><div class="mem-since">CDPP since 2019</div></div>
+    <div class="mem-card"><div class="mem-av">BC</div><div class="mem-name">Bro. Chukwudi</div><div class="mem-role">Outreach Lead</div><div class="mem-since">CDPP since 2017</div></div>
+    <div class="mem-card" style="background:linear-gradient(135deg,rgba(56,189,248,.08),rgba(14,165,233,.04));border:2px dashed rgba(14,165,233,.3)"><div class="mem-av" style="background:linear-gradient(135deg,rgba(56,189,248,.2),rgba(14,165,233,.1));border:2px dashed rgba(14,165,233,.3);box-shadow:none"><span style="font-size:1.8rem;color:var(--blue3)">+</span></div><div class="mem-name" style="color:var(--blue3)">Join Our Family</div><div class="mem-role">Become a Member</div><a href="login.html" style="display:inline-block;margin-top:12px;font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue3);text-decoration:none;border-bottom:1px solid rgba(14,165,233,.3)">Register Now →</a></div>
+  </div>
+</section>
+
+<!-- MEMBER PORTAL BANNER -->
+<div class="member-banner">
+  <h2>✝ Join Our Member Portal</h2>
+  <p>Register as a member to access our full media library, submit prayer requests, view exclusive content, and connect with the CDPP family.</p>
+  <div class="member-banner-btns">
+    <a href="login.html" class="btn-primary">Create My Account ✦</a>
+    <a href="login.html" class="btn-outline">Already a Member? Login →</a>
+  </div>
+</div>
+
+<!-- CONNECT -->
+<section id="connect" class="sec">
+  <div class="sl" style="justify-content:center">Stay Connected</div>
+  <h2 class="sec-title" style="text-align:center">Find Us <span class="em">Everywhere</span></h2>
+  <p class="c-sub">Join our growing online community. We share updates, devotionals, prayer points, and live streams across all platforms daily.</p>
+  <div class="soc-row rv">
+    <a href="#" class="soc-btn fb"><span class="soc-icon">📘</span><span class="soc-label">Facebook</span></a>
+    <a href="#" class="soc-btn ig"><span class="soc-icon">📸</span><span class="soc-label">Instagram</span></a>
+    <a href="#" class="soc-btn yt"><span class="soc-icon">▶️</span><span class="soc-label">YouTube</span></a>
+    <a href="#" class="soc-btn tg"><span class="soc-icon">✈️</span><span class="soc-label">Telegram</span></a>
+    <a href="#" class="soc-btn tw"><span class="soc-icon">🐦</span><span class="soc-label">Twitter / X</span></a>
+    <a href="#" class="soc-btn wa"><span class="soc-icon">💬</span><span class="soc-label">WhatsApp</span></a>
+  </div>
+  <div class="nl-card rv">
+    <h3>Get Our Weekly Updates</h3>
+    <p>Prayer points, event notices, and devotionals — straight to your inbox every week.</p>
+    <div class="nl-form">
+      <input type="email" class="nl-input" id="nl-email" placeholder="Your email address">
+      <button class="nl-btn" onclick="subscribeNewsletter()">Subscribe ✦</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-grid">
+    <div class="f-brand">
+      <div style="display:flex;align-items:center;gap:11px;margin-bottom:4px">
+        <div class="nlogo-icon" style="width:36px;height:36px;font-size:15px">✝</div>
+        <div><div class="nlogo-name">CAMP DAVID</div><div class="nlogo-sub">Prayer Power</div></div>
+      </div>
+      <p>Where Heaven meets Earth. A house of prayer, a community of love, and a movement of faith — since 2014.</p>
+      <div class="f-addr">📍 Benin City, Edo State, Nigeria</div>
+    </div>
+    <div><div class="f-h">Navigate</div><ul class="f-links"><li><a href="#vision">Vision 2025</a></li><li><a href="#about">About Us</a></li><li><a href="#programs">Programs</a></li><li><a href="#outreaches">Outreaches</a></li></ul></div>
+    <div><div class="f-h">Resources</div><ul class="f-links"><li><a href="#testimonies">Testimonies</a></li><li><a href="#calendar">Calendar</a></li><li><a href="#members">Members</a></li><li><a href="login.html">Member Portal</a></li></ul></div>
+    <div><div class="f-h">Platforms</div><ul class="f-links"><li><a href="#">Facebook</a></li><li><a href="#">Instagram</a></li><li><a href="#">YouTube</a></li><li><a href="#">Telegram</a></li><li><a href="#">WhatsApp</a></li></ul></div>
+  </div>
+  <div class="f-bot">
+    <div class="f-copy">© 2025 <span>Camp David Prayer Power</span>. All rights reserved.</div>
+    <div class="f-copy" style="color:rgba(255,255,255,.15)">✝ CDPP · EST. 2014</div>
+  </div>
+</footer>
+
+<!-- Load shared API config -->
+<script src="api.js"></script>
+
+<script>
+// ─── PARTICLES ────────────────────────────────────────────
+const pts = document.getElementById('pts');
+for(let i=0;i<55;i++){
+  const d=document.createElement('div');
+  const sz=Math.random()*2+.5;
+  const op=(Math.random()*.18+.04).toFixed(2);
+  d.className='pt';
+  d.style.cssText=`width:${sz}px;height:${sz}px;left:${Math.random()*100}%;top:${Math.random()*100}%;--op:${op};--d:${5+Math.random()*8}s;--dl:${Math.random()*6}s`;
+  pts.appendChild(d);
+}
+
+// ─── NAV SCROLL ──────────────────────────────────────────
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('sc',scrollY>60));
+
+// ─── SMOOTH SCROLL ───────────────────────────────────────
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+  const t=document.querySelector(a.getAttribute('href'));
+  if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}
+}));
+
+// ─── SCROLL REVEAL ───────────────────────────────────────
+const ro=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target)}})
+},{threshold:.08});
+document.querySelectorAll('.rv,.rvl,.rvr').forEach(el=>ro.observe(el));
+
+// ─── COUNTER ANIMATION ───────────────────────────────────
+const co=new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll('[data-target]').forEach(el=>{
+        const tg=+el.dataset.target,sf=el.dataset.suffix||'';
+        let c=0;const st=tg/60;
+        const tm=setInterval(()=>{c+=st;if(c>=tg){c=tg;clearInterval(tm)}el.textContent=Math.floor(c)+sf},20);
+      });
+      co.unobserve(e.target);
+    }
+  })
+},{threshold:.5});
+const strip=document.querySelector('.hero-stats');
+if(strip)co.observe(strip);
+
+// ─── UPDATE NAV USER INFO ─────────────────────────────────
+function updateNavUser() {
+  const user = Auth.getUser();
+  const loginBtn  = document.getElementById('nav-login-btn');
+  const userMenu  = document.getElementById('nav-user-menu');
+  const userName  = document.getElementById('nav-user-name');
+  const userAv    = document.getElementById('nav-user-av');
+  const userRole  = document.getElementById('nav-user-role');
+  const adminLink = document.getElementById('admin-link');
+
+  if (user && Auth.isLoggedIn()) {
+    loginBtn.style.display  = 'none';
+    userMenu.style.display  = 'flex';
+    userName.textContent    = user.firstName;
+    userRole.textContent    = user.role === 'super_admin' ? 'Super Admin' : user.role === 'admin' ? 'Admin' : 'Member';
+    userAv.textContent      = user.firstName.charAt(0).toUpperCase();
+    if (Auth.isAdmin()) adminLink.style.display = 'block';
+  } else {
+    loginBtn.style.display  = 'flex';
+    userMenu.style.display  = 'none';
+  }
+}
+
+// ─── LOAD PROGRAMS FROM DATABASE ─────────────────────────
+async function loadPrograms() {
+  try {
+    const data = await API.get('/programs');
+    const grid = document.getElementById('programs-grid');
+
+    if (data.success && data.data.length > 0) {
+      grid.innerHTML = '';
+      data.data.forEach((p, i) => {
+        grid.innerHTML += `
+          <div class="pcard">
+            <div class="p-num">0${i+1}</div>
+            <div class="p-icon">${p.icon}</div>
+            <div class="p-name">${p.name}</div>
+            <div class="p-desc">${p.description}</div>
+            <div class="p-time">⏰ ${p.schedule}</div>
+          </div>`;
+      });
+    } else {
+      grid.innerHTML = '<div class="p-loading">No programs found.</div>';
+    }
+  } catch (err) {
+    console.log('Programs load error:', err);
+    document.getElementById('programs-grid').innerHTML = '<div class="p-loading">Could not load programs. Is your server running?</div>';
+  }
+}
+
+// ─── LOAD EVENTS FROM DATABASE ───────────────────────────
+async function loadEvents() {
+  try {
+    const data = await API.get('/events');
+    const list = document.getElementById('events-list');
+
+    // Build calendar
+    buildCalendar();
+
+    if (data.success && data.data.length > 0) {
+      list.innerHTML = '';
+      data.data.forEach(e => {
+        const date = new Date(e.date);
+        const day  = date.getDate();
+        const mon  = date.toLocaleString('default',{month:'short'}).toUpperCase();
+        list.innerHTML += `
+          <div class="ev-item">
+            <div class="ev-date">
+              <div class="ev-dn">${day}</div>
+              <div class="ev-dm">${mon}</div>
+            </div>
+            <div>
+              <div class="ev-name">${e.title}</div>
+              <div class="ev-time">🕐 ${e.time || 'TBA'}</div>
+              <div class="ev-place">📍 ${e.location || 'CDPP'}</div>
+            </div>
+          </div>`;
+      });
+    } else {
+      list.innerHTML = `
+        <div class="ev-item">
+          <div class="ev-date"><div class="ev-dn">25</div><div class="ev-dm">APR</div></div>
+          <div><div class="ev-name">Monthly Night of Prayer</div><div class="ev-time">🕐 10:00 PM – 6:00 AM</div><div class="ev-place">📍 CDPP Main Auditorium</div></div>
+        </div>
+        <div class="ev-item">
+          <div class="ev-date"><div class="ev-dn">17</div><div class="ev-dm">APR</div></div>
+          <div><div class="ev-name">Youth & Teens Fellowship</div><div class="ev-time">🕐 3:00 PM – 6:00 PM</div><div class="ev-place">📍 CDPP Youth Hall</div></div>
+        </div>
+        <div class="ev-item">
+          <div class="ev-date"><div class="ev-dn">27</div><div class="ev-dm">APR</div></div>
+          <div><div class="ev-name">Community Outreach</div><div class="ev-time">🕐 9:00 AM – 3:00 PM</div><div class="ev-place">📍 Benin City</div></div>
+        </div>`;
+    }
+  } catch (err) {
+    console.log('Events load error:', err);
+    document.getElementById('events-list').innerHTML = '<div class="ev-loading">Could not load events.</div>';
+  }
+}
+
+// ─── BUILD CALENDAR ──────────────────────────────────────
+function buildCalendar() {
+  const now   = new Date();
+  const month = now.getMonth();
+  const year  = now.getFullYear();
+  const months = ['JANUARY','FEBRUARY','MARCH','APRIL','MAY','JUNE','JULY','AUGUST','SEPTEMBER','OCTOBER','NOVEMBER','DECEMBER'];
+
+  document.getElementById('cal-month-name').textContent = months[month];
+  document.getElementById('cal-year').textContent = year;
+
+  const firstDay = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month+1, 0).getDate();
+  const today = now.getDate();
+
+  const grid = document.getElementById('cal-grid');
+  // Keep day labels, remove old days
+  const labels = grid.querySelectorAll('.cdl');
+  grid.innerHTML = '';
+  labels.forEach(l => grid.appendChild(l));
+
+  for(let i=0;i<firstDay;i++) {
+    const d=document.createElement('div');d.className='cd empty';d.textContent='.';grid.appendChild(d);
+  }
+  for(let d=1;d<=daysInMonth;d++) {
+    const div=document.createElement('div');
+    div.className='cd'+(d===today?' tod':'');
+    div.textContent=d;
+    grid.appendChild(div);
+  }
+}
+
+// ─── LOAD TESTIMONIES FROM DATABASE ──────────────────────
+async function loadTestimonies() {
+  try {
+    const data = await API.get('/testimonies');
+    const grid = document.getElementById('testimonies-grid');
+
+    if (data.success && data.data.length > 0) {
+      grid.innerHTML = '';
+      data.data.forEach((t, i) => {
+        const initials = t.authorName.split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase();
+        grid.innerHTML += `
+          <div class="tcard ${i===0?'ht':''}">
+            <span class="t-q">❝</span>
+            <p class="t-text">${t.content}</p>
+            <div class="t-auth">
+              <div class="t-av">${initials}</div>
+              <div>
+                <div class="t-name">${t.isAnonymous ? 'Anonymous Member' : t.authorName}</div>
+                <div class="t-role">${t.category ? t.category.charAt(0).toUpperCase()+t.category.slice(1) : 'Testimony'}</div>
+              </div>
+            </div>
+          </div>`;
+      });
+    } else {
+      // Show placeholder testimonies if none in DB yet
+      grid.innerHTML = `
+        <div class="tcard ht">
+          <span class="t-q">❝</span>
+          <p class="t-text">Joining Camp David Prayer Power was the turning point of my entire life. I came in broken — my marriage was failing, my business had collapsed. Today I stand as a living testimony that God still heals and restores. CDPP did not just change my life — it saved it.</p>
+          <div class="t-auth"><div class="t-av">AB</div><div><div class="t-name">Adeola Balogun</div><div class="t-role">Member Since 2018</div></div></div>
+        </div>
+        <div class="tcard">
+          <span class="t-q">❝</span>
+          <p class="t-text">The monthly Night of Prayer changed everything. I walked in as a skeptic, walked out a believer. Three months later I received the miracle I had prayed for years.</p>
+          <div class="t-auth"><div class="t-av">EO</div><div><div class="t-name">Emmanuel Okonkwo</div><div class="t-role">Member Since 2021</div></div></div>
+        </div>
+        <div class="tcard">
+          <span class="t-q">❝</span>
+          <p class="t-text">I was healed of a condition doctors declared permanent. After one prayer session at CDPP, everything changed. God is a God of miracles.</p>
+          <div class="t-auth"><div class="t-av">CF</div><div><div class="t-name">Chidinma Faruk</div><div class="t-role">Member Since 2019</div></div></div>
+        </div>
+        <div class="tcard">
+          <span class="t-q">❝</span>
+          <p class="t-text">The youth ministry sharpened my gifts and gave me a platform. I am leading worship at 22 — something I never dared dream before CDPP.</p>
+          <div class="t-auth"><div class="t-av">TN</div><div><div class="t-name">Toluwalase Nwachukwu</div><div class="t-role">Member Since 2020</div></div></div>
+        </div>
+        <div class="tcard">
+          <span class="t-q">❝</span>
+          <p class="t-text">The counseling and prayer at CDPP rebuilt what the enemy tried to destroy. We are stronger than ever. God is undeniably good.</p>
+          <div class="t-auth"><div class="t-av">RA</div><div><div class="t-name">Roland & Kemi Adeyemi</div><div class="t-role">Members Since 2017</div></div></div>
+        </div>`;
+    }
+  } catch (err) {
+    console.log('Testimonies load error:', err);
+  }
+}
+
+// ─── SUBMIT TESTIMONY ────────────────────────────────────
+async function submitTestimony() {
+  const name     = document.getElementById('t-name').value.trim();
+  const title    = document.getElementById('t-title').value.trim();
+  const content  = document.getElementById('t-content').value.trim();
+  const category = document.getElementById('t-category').value;
+
+  if (!name || !title || !content) {
+    showToast('Please fill in all fields.', 'error'); return;
+  }
+  if (content.length < 50) {
+    showToast('Please write at least 50 characters.', 'warning'); return;
+  }
+
+  try {
+    const data = await API.post('/testimonies', { authorName: name, title, content, category });
+    if (data.success) {
+      showToast('Thank you! Your testimony has been submitted for review. 🙏', 'success', 5000);
+      document.getElementById('t-name').value    = '';
+      document.getElementById('t-title').value   = '';
+      document.getElementById('t-content').value = '';
+    } else {
+      showToast(data.message || 'Submission failed.', 'error');
+    }
+  } catch (err) {
+    showToast('Connection error. Is the server running?', 'error');
+  }
+}
+
+// ─── NEWSLETTER SUBSCRIBE ────────────────────────────────
+async function subscribeNewsletter() {
+  const email = document.getElementById('nl-email').value.trim();
+  if (!email) { showToast('Please enter your email address.', 'warning'); return; }
+
+  try {
+    const data = await API.post('/newsletter/subscribe', { email });
+    if (data.success) {
+      showToast('🙏 ' + data.message, 'success');
+      document.getElementById('nl-email').value = '';
+    } else {
+      showToast(data.message, 'error');
+    }
+  } catch (err) {
+    showToast('Connection error. Is the server running?', 'error');
+  }
+}
+
+// ─── INIT ────────────────────────────────────────────────
+window.addEventListener('DOMContentLoaded', () => {
+  updateNavUser();
+  loadPrograms();
+  loadEvents();
+  loadTestimonies();
+  buildCalendar();
+});
+</script>
+</body>
+</html>

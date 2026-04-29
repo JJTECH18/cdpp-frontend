@@ -1,0 +1,7 @@
+node_modules/
+.env
+AppData/
+.DS_Store
+Thumbs.db
+dist/
+build/
